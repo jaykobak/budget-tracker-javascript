@@ -46,8 +46,6 @@ function updateTransactionHistory() {
     }
 }
 
-// style="color: gray; font-size: small"
-
 const addTransaction = () => {
     // Collect user's input
     let userInput = collectUserInput(["transactionName", "transactionAmount", "transactionType"])
@@ -59,7 +57,7 @@ const addTransaction = () => {
     }
 
     // Add user's input to allTransactions array and local storage
-    allTransactions.push(userInput)
+    allTransactions.unshift(userInput)
     localStorage.setItem("transactions", JSON.stringify(allTransactions))
 
     // Clear input fields
