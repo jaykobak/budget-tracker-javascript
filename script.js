@@ -1,5 +1,8 @@
 const allTransactions = JSON.parse(localStorage.getItem("transactions")) || []
 
+// Show transaction history
+updateTransactionHistory()
+
 // Function to close any modal
 const closeModal = () => {
     const infoModalElement = document.getElementById('infoModal')
@@ -29,7 +32,7 @@ function collectUserInput(inputFieldsId) {
     return userInputDictionary;
 }
 
-const updateTransactionHistory = () => {
+function updateTransactionHistory() {
     const listElement = document.getElementById('transactionList')
 
     listElement.innerHTML = ''
