@@ -103,10 +103,12 @@ li {
 
 li.income {
     border-left-color: #27ae60;
+    color: #27ae60;
 }
 
 li.expense {
     border-left-color: #e74c3c;
+    color: #e74c3c;
 }
 
 .delete-btn {

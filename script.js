@@ -29,6 +29,22 @@ function collectUserInput(inputFieldsId) {
     return userInputDictionary;
 }
 
+const updateTransactionHistory = () => {
+    const listElement = document.getElementById('transactionList')
+
+    listElement.innerHTML = ''
+
+    for (let transaction = 0; transaction < allTransactions.length; transaction++) {
+        const transactionName = allTransactions[transaction].usertransactionName
+        const transactionAmount = allTransactions[transaction].usertransactionAmount
+        const transactionType = allTransactions[transaction].usertransactionType
+        
+        listElement.innerHTML += `<li class="${transactionType}">${transactionName} <span>$${transactionAmount}</span></li>`
+    }
+}
+
+// style="color: gray; font-size: small"
+
 const addTransaction = () => {
     // Collect user's input
     let userInput = collectUserInput(["transactionName", "transactionAmount", "transactionType"])
@@ -46,4 +62,7 @@ const addTransaction = () => {
     // Clear input fields
     document.getElementById('transactionName').value = ''
     document.getElementById('transactionAmount').value = ''
+
+    // Update transaction history
+    updateTransactionHistory()
 }
