@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CashFlow Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h2>CashFlow Tracker</h2>
-        
+
         <div class="balance-card">
             <h3>Total Balance</h3>
             <h1 id="totalBalance">₦0.00</h1>
@@ -21,7 +23,7 @@
                 <label for="transactionName">Description</label>
                 <input type="text" id="transactionName" placeholder="e.g., New Headphones">
             </div>
-            
+
             <div class="input-group">
                 <label for="transactionAmount">Amount</label>
                 <input type="number" id="transactionAmount" placeholder="e.g., 15000">
@@ -46,6 +48,33 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close-btn">&times;</span>
+            <h3 id="modalTitle">Confirm Deletion</h3>
+            <p id="modalMessage">Are you sure you want to delete this transaction?</p>
+
+            <div class="modal-actions">
+                <button id="cancelBtn" class="cancel-btn">Cancel</button>
+                <button id="confirmBtn" class="confirm-btn">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop up modal -->
+    <div id="infoModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeInfoModal()">&times;</span>
+        
+        <h3 id="infoTitle"></h3>
+        <p id="infoMessage"></p>
+        
+        <button class="cancel-btn" onclick="closeInfoModal()" style="width: 100%; margin-top: 20px;">Got it!</button>
+    </div>
+</div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
