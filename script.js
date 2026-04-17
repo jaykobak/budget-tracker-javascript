@@ -1,9 +1,9 @@
-const allTransactions = []
+const allTransactions = JSON.parse(localStorage.getItem("transactions")) || []
 
 // Function to close any modal
 const closeModal = () => {
-    infoModalElement = document.getElementById('infoModal')
-    customModalElement = document.getElementById('customModal')
+    const infoModalElement = document.getElementById('infoModal')
+    const customModalElement = document.getElementById('customModal')
 
     if (infoModalElement) (infoModalElement.style.display = 'none')
     if (customModalElement) (customModalElement.style.display = 'none')
@@ -34,8 +34,12 @@ const addTransaction = () => {
     let userInput = collectUserInput(["transactionName", "transactionAmount", "transactionType"])
 
     // Input validation
-    // if (userTransactionName === '' || userTransactionAmount === '') {
-    //     showInfoModal("Missing Details", "Please fill in all input fields before adding a transaction");
-    //     return;
-    // }
+    if (userInput.usertransactionName === '' || userInput.usertransactionAmount === '') {
+        showInfoModal("Missing Details", "Please fill in all input fields before adding a transaction");
+        return;
+    }
+
+    // Add user's input to allTransactions array and local storage
+    allTransactions.push(userInput)
+    localStorage.setItem("transactions", JSON.stringify(allTransactions))
 }
