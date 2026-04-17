@@ -20,9 +20,12 @@ const showInfoModal = (title, message) => {
 
 const addTransaction = () => {
     // Collect user's input
-    userTransactionName = document.getElementById('transactionName').value;
-    userTransactionAmount = document.getElementById('transactionAmount').value;
-    userTransactionType = document.getElementById('transactionType').value;
-}
+    userTransactionName = document.getElementById('transactionName').value.trim();
+    userTransactionAmount = document.getElementById('transactionAmount').value.trim();
+    userTransactionType = document.getElementById('transactionType').value.trim();
 
-// showInfoModal("Missing Details", "Please fill in all input fields before adding a transaction")
+    // Input validation
+    if (userTransactionName === '' || userTransactionAmount === '') {
+        showInfoModal("Missing Details", "Please fill in all input fields before adding a transaction")
+    }
+}
