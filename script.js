@@ -1,3 +1,12 @@
+// Function to close any modal
+const closeModal = () => {
+    infoModalElement = document.getElementById('infoModal')
+    customModalElement = document.getElementById('customModal')
+
+    if (infoModalElement) (infoModalElement.style.display = 'none')
+    if (customModalElement) (customModalElement.style.display = 'none')
+}
+
 // Function to show info modal
 const showInfoModal = (title, message) => {
     document.getElementById('infoTitle').innerText = title
@@ -7,4 +16,4 @@ const showInfoModal = (title, message) => {
     infoModalElement.style.display = 'flex'
 }
 
-showInfoModal("Missing Details", "Please fill in all input fields before adding a transaction")
+// showInfoModal("Missing Details", "Please fill in all input fields before adding a transaction")
