@@ -42,4 +42,8 @@ const addTransaction = () => {
     // Add user's input to allTransactions array and local storage
     allTransactions.push(userInput)
     localStorage.setItem("transactions", JSON.stringify(allTransactions))
+
+    // Clear input fields
+    document.getElementById('transactionName').value = ''
+    document.getElementById('transactionAmount').value = ''
 }
