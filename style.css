@@ -1,205 +1,214 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f4f7f6;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
 .container {
-    background: white;
-    width: 100%;
-    max-width: 400px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .balance-card {
-    background: #2c3e50;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 30px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 h3 {
-    font-size: 16px;
-    color: #666;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
 }
 
 .balance-card h3 {
-    color: #ecf0f1;
-    border: none;
+  color: #ecf0f1;
+  border: none;
 }
 
 .input-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #444;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #444;
 }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 button {
-    width: 100%;
-    padding: 12px;
-    background: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 button:hover {
-    background: #219653;
+  background: #219653;
 }
 
 ul {
-    list-style-type: none;
-    margin-top: 15px;
+  list-style-type: none;
+  margin-top: 15px;
 }
 
 li {
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 5px solid #ccc;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid #ccc;
 }
 
 li.income {
-    border-left-color: #27ae60;
-    color: #27ae60;
+  border-left-color: #27ae60;
+  color: #27ae60;
 }
 
 li.expense {
-    border-left-color: #e74c3c;
-    color: #e74c3c;
+  border-left-color: #e74c3c;
+  color: #e74c3c;
+}
+
+li.empty-state {
+  border-left: none;
+  justify-content: center;
+  color: #7f8c8d;
+  font-style: italic;
+  background: #f3f6f8;
 }
 
 .delete-btn {
-    background: #e74c3c;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-    width: auto;
-    margin-top: 0;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  width: auto;
+  margin-top: 0;
 }
 
 /* --- Modal Styles --- */
 .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-overlay.show {
-    display: flex; 
+  display: flex;
 }
 
 .modal-content {
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 350px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    animation: slideDown 0.3s ease-out;
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s ease-out;
 }
 
 .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #888;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
 }
 
 .close-btn:hover {
-    color: #333;
+  color: #333;
 }
 
 .modal-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 15px;
 }
 
 .confirm-btn {
-    background-color: #e74c3c;
-    margin-top: 0;
+  background-color: #e74c3c;
+  margin-top: 0;
 }
 
 .confirm-btn:hover {
-    background-color: #c0392b;
+  background-color: #c0392b;
 }
 
 .cancel-btn {
-    background-color: #ecf0f1;
-    color: #333;
-    margin-top: 0;
+  background-color: #ecf0f1;
+  color: #333;
+  margin-top: 0;
 }
 
 .cancel-btn:hover {
-    background-color: #bdc3c7;
+  background-color: #bdc3c7;
 }
 
 @keyframes slideDown {
-    from { 
-        transform: translateY(-30px); 
-        opacity: 0; 
-    }
-    to { 
-        transform: translateY(0); 
-        opacity: 1; 
-    }
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

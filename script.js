@@ -23,7 +23,7 @@ const showInfoModal = (title, message) => {
 
 function collectUserInput(inputFieldsId) {
     const userInputDictionary = {}
-    
+
     for (let id = 0; id < inputFieldsId.length; id++) {
         const dictionaryKey = `user${inputFieldsId[id]}`
         userInputDictionary[dictionaryKey] = document.getElementById(`${inputFieldsId[id]}`).value.trim();
@@ -37,14 +37,23 @@ function updateTransactionHistory() {
 
     listElement.innerHTML = ''
 
+    if (allTransactions.length === 0) {
+        listElement.innerHTML = '<li class="empty-state">No transaction yet. Add one above to get started.</li>'
+        return
+    }
+
     for (let transaction = 0; transaction < allTransactions.length; transaction++) {
         const transactionName = allTransactions[transaction].usertransactionName
         const transactionAmount = allTransactions[transaction].usertransactionAmount
         const transactionType = allTransactions[transaction].usertransactionType
-        
+
         listElement.innerHTML += `<li class="${transactionType}">${transactionName} <span>$${transactionAmount}</span></li>`
     }
 }
+
+// function updateTotalBalanceCard() {
+//     console.log("yes")
+// }
 
 const addTransaction = () => {
     // Collect user's input
@@ -66,4 +75,6 @@ const addTransaction = () => {
 
     // Update transaction history
     updateTransactionHistory()
+
+    // updateTotalBalanceCard()
 }
