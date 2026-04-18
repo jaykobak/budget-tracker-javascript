@@ -47,13 +47,38 @@ function updateTransactionHistory() {
         const transactionAmount = allTransactions[transaction].usertransactionAmount
         const transactionType = allTransactions[transaction].usertransactionType
 
-        listElement.innerHTML += `<li class="${transactionType}">${transactionName} <span>$${transactionAmount}</span></li>`
+        listElement.innerHTML += `<li class="${transactionType}">${transactionName} <span>₦${transactionAmount}</span></li>`
     }
 }
 
-// function updateTotalBalanceCard() {
-//     console.log("yes")
-// }
+function updateTotalBalanceCard() {
+    const transactionIncome = []
+    const transactionExpense = []
+    const balanceElement = document.getElementById('totalBalance')
+
+    for (let transaction = 0; transaction < allTransactions.length; transaction++) {
+        const transactionAmount = Number(allTransactions[transaction].usertransactionAmount)
+        const transactionType = allTransactions[transaction].usertransactionType
+
+        if (transactionType == 'income') {transactionIncome.push(transactionAmount)}
+        if (transactionType == 'expense') {transactionExpense.push(transactionAmount)}
+
+    }
+
+    // Add all income
+    const totalTransactionIncome = transactionIncome.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+    }, 0);
+
+    // Add all expense
+    const totalTransactionExpense = transactionExpense.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+    }, 0);
+
+    const totalBalance = (totalTransactionIncome - totalTransactionExpense).toFixed(2);
+
+    balanceElement.innerText = `₦${totalBalance}`
+}
 
 const addTransaction = () => {
     // Collect user's input
@@ -77,4 +102,5 @@ const addTransaction = () => {
     updateTransactionHistory()
 
     // updateTotalBalanceCard()
+    updateTotalBalanceCard()
 }
