@@ -51,7 +51,7 @@ function updateTransactionHistory() {
             <span class="transaction-name">${transactionName}</span>
             <div class="transaction-actions">
                 <span class="transaction-amount">₦${transactionAmount}</span>
-                <button class="delete-btn" type="button">Delete</button>
+                <button class="delete-btn" type="button" onclick="deleteItem()">Delete</button>
             </div>
         </li>`
     }
@@ -84,6 +84,10 @@ function updateTotalBalanceCard() {
     const totalBalance = (totalTransactionIncome - totalTransactionExpense).toFixed(2);
 
     balanceElement.innerText = `₦${totalBalance}`
+}
+
+function deleteItem() {
+    console.log("Button pressed")
 }
 
 const addTransaction = () => {
