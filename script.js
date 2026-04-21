@@ -47,7 +47,13 @@ function updateTransactionHistory() {
         const transactionAmount = allTransactions[transaction].usertransactionAmount
         const transactionType = allTransactions[transaction].usertransactionType
 
-        listElement.innerHTML += `<li class="${transactionType}">${transactionName} <span>₦${transactionAmount}</span></li>`
+        listElement.innerHTML += `<li class="${transactionType}">
+            <span class="transaction-name">${transactionName}</span>
+            <div class="transaction-actions">
+                <span class="transaction-amount">₦${transactionAmount}</span>
+                <button class="delete-btn" type="button">Delete</button>
+            </div>
+        </li>`
     }
 }
 

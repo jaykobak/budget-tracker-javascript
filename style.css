@@ -84,7 +84,7 @@ button {
 }
 
 button:hover {
-  background: #219653;
+  opacity: 0.8;
 }
 
 ul {
@@ -130,6 +130,16 @@ li.empty-state {
   border-radius: 3px;
   width: auto;
   margin-top: 0;
+}
+
+.transaction-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.transaction-amount {
+  font-weight: 600;
 }
 
 /* --- Modal Styles --- */
