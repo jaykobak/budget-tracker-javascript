@@ -1,4 +1,5 @@
 const allTransactions = JSON.parse(localStorage.getItem("transactions")) || []
+let deleteItemId = ''
 
 // Show transaction history
 updateTransactionHistory()
@@ -13,7 +14,8 @@ const closeModal = () => {
 }
 
 // Function to show info modal and delete modal
-const showModal = (title, message, modalId) => {
+const showModal = (title, message, modalId, transactionId) => {
+    deleteItemId = transactionId;
     const modalElement = document.getElementById(modalId)
     
     document.getElementById('infoTitle').innerText = title
@@ -52,7 +54,7 @@ function updateTransactionHistory() {
             <span class="transaction-name">${transactionName}</span>
             <div class="transaction-actions">
                 <span class="transaction-amount">₦${transactionAmount}</span>
-                <button class="delete-btn" type="button" onclick="showModal('', '', 'customModal')">Delete</button>
+                <button class="delete-btn" type="button" onclick="showModal('', '', 'customModal', ${transaction})">Delete</button>
             </div>
         </li>`
     }
@@ -87,8 +89,16 @@ function updateTotalBalanceCard() {
     balanceElement.innerText = `₦${totalBalance}`
 }
 
-function deleteItem(transactionId) {
-    console.log(transactionId)
+function deleteItem() {
+    // Delete transaction from list and add list to local storage
+    allTransactions.splice(deleteItemId, 1)
+    localStorage.setItem("transactions", JSON.stringify(allTransactions))
+
+    // Update transaction history
+    updateTransactionHistory()
+
+    // Close all modal
+    closeModal()
 }
 
 const addTransaction = () => {
@@ -97,7 +107,7 @@ const addTransaction = () => {
 
     // Input validation
     if (userInput.usertransactionName === '' || userInput.usertransactionAmount === '') {
-        showModal("Missing Details", "Please fill in all input fields before adding a transaction", 'infoModal');
+        showModal("Missing Details", "Please fill in all input fields before adding a transaction", 'infoModal', '');
         return;
     }
 
