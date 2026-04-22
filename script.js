@@ -97,6 +97,9 @@ function deleteItem() {
     // Update transaction history
     updateTransactionHistory()
 
+    // updateTotalBalanceCard()
+    updateTotalBalanceCard()
+
     // Close all modal
     closeModal()
 }
