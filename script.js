@@ -24,7 +24,9 @@ const showInfoModal = (title, message) => {
 // Function to show delete modal
 const showDeleteModal = () => {
     const customModalElement = document.getElementById('customModal')
-    
+    const closeModalButton = document.getElementById('closeModalBtn')
+    const cancelButton = document.getElementById('cancelBtn')
+    const confirmButton = document.getElementById('confirmBtn')
 
     customModalElement.style.display = 'flex'
 }
