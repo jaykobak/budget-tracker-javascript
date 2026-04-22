@@ -12,19 +12,14 @@ const closeModal = () => {
     if (customModalElement) (customModalElement.style.display = 'none')
 }
 
-// Function to show info modal
-const showInfoModal = (title, message) => {
+// Function to show info modal and delete modal
+const showModal = (title, message, modalId) => {
+    const modalElement = document.getElementById(modalId)
+    
     document.getElementById('infoTitle').innerText = title
     document.getElementById('infoMessage').innerText = message
 
-    const infoModalElement = document.getElementById('infoModal')
-    infoModalElement.style.display = 'flex'
-}
-
-// Function to show delete modal
-const showDeleteModal = () => {
-    const customModalElement = document.getElementById('customModal')
-    customModalElement.style.display = 'flex'
+    modalElement.style.display = 'flex'
 }
 
 function collectUserInput(inputFieldsId) {
@@ -57,7 +52,7 @@ function updateTransactionHistory() {
             <span class="transaction-name">${transactionName}</span>
             <div class="transaction-actions">
                 <span class="transaction-amount">₦${transactionAmount}</span>
-                <button class="delete-btn" type="button" onclick="showDeleteModal()">Delete</button>
+                <button class="delete-btn" type="button" onclick="showModal('', '', 'customModal')">Delete</button>
             </div>
         </li>`
     }
@@ -102,7 +97,7 @@ const addTransaction = () => {
 
     // Input validation
     if (userInput.usertransactionName === '' || userInput.usertransactionAmount === '') {
-        showInfoModal("Missing Details", "Please fill in all input fields before adding a transaction");
+        showModal("Missing Details", "Please fill in all input fields before adding a transaction", 'infoModal');
         return;
     }
 
