@@ -21,6 +21,16 @@ const showInfoModal = (title, message) => {
     infoModalElement.style.display = 'flex'
 }
 
+// Function to show delete modal
+const showDeleteModal = () => {
+    const customModalElement = document.getElementById('customModal')
+    
+
+    customModalElement.style.display = 'flex'
+}
+
+showDeleteModal()
+
 function collectUserInput(inputFieldsId) {
     const userInputDictionary = {}
 
