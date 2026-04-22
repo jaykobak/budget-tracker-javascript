@@ -17,21 +17,15 @@ const showInfoModal = (title, message) => {
     document.getElementById('infoTitle').innerText = title
     document.getElementById('infoMessage').innerText = message
 
-    infoModalElement = document.getElementById('infoModal')
+    const infoModalElement = document.getElementById('infoModal')
     infoModalElement.style.display = 'flex'
 }
 
 // Function to show delete modal
 const showDeleteModal = () => {
     const customModalElement = document.getElementById('customModal')
-    const closeModalButton = document.getElementById('closeModalBtn')
-    const cancelButton = document.getElementById('cancelBtn')
-    const confirmButton = document.getElementById('confirmBtn')
-
     customModalElement.style.display = 'flex'
 }
-
-showDeleteModal()
 
 function collectUserInput(inputFieldsId) {
     const userInputDictionary = {}
@@ -63,7 +57,7 @@ function updateTransactionHistory() {
             <span class="transaction-name">${transactionName}</span>
             <div class="transaction-actions">
                 <span class="transaction-amount">₦${transactionAmount}</span>
-                <button class="delete-btn" type="button" onclick="deleteItem(${transaction})">Delete</button>
+                <button class="delete-btn" type="button" onclick="showDeleteModal()">Delete</button>
             </div>
         </li>`
     }
