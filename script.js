@@ -4,6 +4,9 @@ let deleteItemId = ''
 // Show transaction history
 updateTransactionHistory()
 
+// Show balance
+updateTotalBalanceCard()
+
 // Function to close any modal
 const closeModal = () => {
     const infoModalElement = document.getElementById('infoModal')
